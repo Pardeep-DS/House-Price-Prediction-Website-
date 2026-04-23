@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Smooth background zoom animation */
+body {
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: bgZoom 25s ease-in-out infinite alternate;
+}
+
+@keyframes bgZoom {
+    0% { background-size: 100%; }
+    100% { background-size: 110%; }
+}
+
+/* Dark overlay */
+.hero-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+/* Wrapper */
+.wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Card */
+.prediction-card {
+    width: 420px;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    color: #fff;
+    animation: floatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.header p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Inputs */
+.input-block {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 13px;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.area {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.15);
+    outline: none;
+    font-size: 15px;
+    font-weight: 500;
+
+    /* Glass effect */
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    backdrop-filter: blur(8px);
+
+    transition: all 0.3s ease;
+}
+
+/* Placeholder styling */
+.area::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+/* Hover effect */
+.area:hover {
+    background: rgba(255,255,255,0.22);
+}
+
+/* Focus effect */
+.area:focus {
+    background: rgba(255,255,255,0.25);
+    border: 1px solid rgba(0, 150, 255, 0.6);
+    box-shadow: 0 0 15px rgba(0, 150, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Switch Buttons */
+.switch-field {
+    display: flex;
+    gap: 6px;
+}
+
+.switch-field input {
+    display: none;
+}
+
+.switch-field label {
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.switch-field label:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+.switch-field input:checked + label {
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: white;
+    font-weight: 600;
+}
+
+/* Button */
+.submit {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(45deg, #ff512f, #dd2476);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.submit:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* Result */
+.result {
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.2);
+    min-height: 40px;
+}
+
+/* -------- Enhanced Location Dropdown -------- */
+
+.custom-select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* Main Select Styling */
+.location {
+    width: 100%;
+    padding: 12px 45px 12px 15px;
+    border-radius: 14px;
+    border: 2px solid transparent;
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+    appearance: none;
+    cursor: pointer;
+
+    /* New Beautiful Background */
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+.location:hover {
+    background: linear-gradient(135deg, #8e2de2, #4a00e0);
+    transform: translateY(-2px);
+}
+
+/* Focus Glow */
+.location:focus {
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 18px rgba(142, 45, 226, 0.7);
+}
+
+/* Custom Arrow */
+.custom-arrow {
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: translateY(-50%) rotate(45deg);
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+/* -------- Enhanced Location Dropdown -------- */
+
+.custom-select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.location {
+    width: 100%;
+    padding: 12px 45px 12px 15px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    appearance: none;
+    cursor: pointer;
+
+    /* MATCHED GLASS STYLE */
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    backdrop-filter: blur(10px);
+
+    transition: all 0.3s ease;
+}
+
+/* Hover – subtle like other inputs */
+.location:hover {
+    background: rgba(255, 255, 255, 0.28);
+}
+
+/* Focus – soft blue highlight like BHK selected */
+.location:focus {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 10px rgba(0, 150, 255, 0.4);
+}
+
+/* Custom Arrow */
+.custom-arrow {
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: translateY(-50%) rotate(45deg);
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.location:focus + .custom-arrow {
+    transform: translateY(-50%) rotate(-135deg);
+}
+
+/* Dropdown Options */
+.location option {
+    background-color: #2b2b2b;  /* Dark panel like glass card */
+    color: #ffffff;
+}
+
+
